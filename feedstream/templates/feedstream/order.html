@@ -1,0 +1,327 @@
+{% extends 'feedstream/base.html' %}
+{% load static %}
+
+{% block styles %}
+<link href="{% static 'feedstream/css/order.css' %}" rel="stylesheet">
+{% endblock %}
+
+{% block content %}
+<section class="order background">
+  <div class="pagecard order-container">
+    <!-- Order Cover -->
+    <div class="card mt-4 pb-sm-12">
+      <img class="order-display-image " src="{{ caterer.profile_image.url }}" alt="" />
+      <div class="card-body">
+        <div class="row">
+          <div class="col-sm-10 ">
+            <h2 class="m-3">{{ caterer.business_name }}</h2>
+            <span class="m-3 stars">{{average}}</span>
+            <h4 class="mt-3 ml-3">{{ caterer.street_address }}, {{ caterer.municipality_address }}</h4>
+          </div>
+          <div class="col-sm-2 px-0 py-auto">
+              {% if user_type == 1 %}
+                <button class="btn btn-full mx-0 my-2"><a href="{% url 'orders:book' caterer.id %}">BOOK</a></button>
+              {% elif user_type != 0%}
+                <button class="btn btn-full ml-sm-0 mr-sm-5 my-4 px-0"><a  data-toggle="modal" data-target="#signup-caterer">Sign Up</a></button>
+              {% endif %}
+          </div>
+        </div>
+        <hr>
+        <p class="card-text">{{ caterer.business_description }}</p>
+      </div>
+    </div>
+    <!-- Order Cover -->
+
+    <!-- Photos -->
+    <div class="order-photos-div">
+      <hr>
+      <h4>Photos</h4>
+      <div class="orderphotos my-4">
+        <div class="row">
+          <div class="photopreview col-sm-3">
+            <div class="zoomdiv">
+              <div class="container p-0">
+                <img src="https://scstylecaster.files.wordpress.com/2016/08/sweet-potato-chick-pea-buddha-bowls-tahini-sauce.jpg">
+              </div>
+            </div>
+          </div>
+          <div class="photopreview col-sm-3">
+            <div class="zoomdiv">
+              <div class="container p-0">
+                <img src="https://scstylecaster.files.wordpress.com/2016/08/c7dc3-13732205_1739523542980248_1391673626_n.jpg?w=1080&h=1217">
+              </div>
+            </div>
+          </div>
+          <div class="photopreview col-sm-3">
+            <div class="zoomdiv">
+              <div class="container p-0">
+                <img src="https://scstylecaster.files.wordpress.com/2016/08/3bb91-13721074_1427275043955880_650999012_n.jpg?w=1080&h=1349">
+              </div>
+            </div>
+          </div>
+          <div class="photopreview col-sm-3">
+            <div class="zoomdiv">
+              <div class="container p-0">
+                <div class="overlay">
+                  <div class="text">View more</div>
+                </div>
+                <img src="https://scstylecaster.files.wordpress.com/2016/08/47992-13534305_666488596838762_1644320438_n.jpg?w=750&h=935">
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- Photos -->
+      <!-- Carousel-->
+        <!-- Button trigger modal -->
+        <!-- Modal -->
+        <div class="modal fade"  id="modalCenter" tabindex="-1" role="dialog" aria-hidden="true">
+          <div class="modal-dialog modal-dialog-centered" role="document">
+            <div class="modal-content">
+              <div class="modal-header">
+                <h5 class="modal-title">Photos</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                  <span aria-hidden="true">&times;</span>
+                </button>
+              </div>
+              <div class="modal-body">
+                <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
+                  <ol class="carousel-indicators">
+                    <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
+                    <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
+                    <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
+                  </ol>
+                  <div class="carousel-inner">
+                    <div class="carousel-item active">
+                      <img class="d-block order-carousel-image" src="https://scstylecaster.files.wordpress.com/2016/08/47992-13534305_666488596838762_1644320438_n.jpg?w=750&h=935" alt="First slide">
+                    </div>
+                    <div class="carousel-item">
+                      <img class="d-block order-carousel-image" src="https://scstylecaster.files.wordpress.com/2016/08/c7dc3-13732205_1739523542980248_1391673626_n.jpg?w=1080&h=1217">
+                    </div>
+                    <div class="carousel-item">
+                      <img class="d-block order-carousel-image" src="https://scstylecaster.files.wordpress.com/2016/08/3bb91-13721074_1427275043955880_650999012_n.jpg?w=1080&h=1349">
+                    </div>
+                  </div>
+
+                  <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
+                    <div class="hover-style-carousel">
+                      <div class="inner-hover-style-carousel"><strong><</strong></div>
+                    </div>
+                  </a>
+                  <a class="carousel-control-next btn-0" href="#carouselExampleIndicators" role="button" data-slide="next">
+                    <div class="hover-style-carousel">
+                      <div class="inner-hover-style-carousel">
+                        <strong>></strong>
+                      </div>
+                    </div>
+                  </a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+    <!-- Feedback -->
+    <div class="order-reviews-questions-div my-4">
+
+    <!-- start review x question tab -->
+    <div class="headercont row">
+      <div class="prodreviews card-header col-sm-6 selected" >
+        Reviews
+      </div>
+      <div class="prodreviews card-header col-sm-6" >
+        Questions
+      </div>
+    </div>
+    <!-- end of start review x question tab -->
+
+      <!-- start of reviews -->
+      <div class="reviews">
+        <hr>
+        <!-- start of review with stars -->
+        <div class="card-body m-2">
+          <div class="row">
+            <div class="col-sm-2">
+              <!-- user review section textbox -->
+              {% if user_type == 1 %}
+                <div class="image-cropper comment-size m-auto">
+                  <img class="userIcon profile-pic" src="{{ consumer.profile_image.url }}">
+                </div>
+              {% endif %}
+            </div>
+            <div class="col-sm-10">
+              <p class="row">{{ consumer.first_name }} {{ consumer.last_name }}{{ review.review_rating }}</p>
+              <small class="row text-muted">{{ review.consumer }}</small>
+              <small class="row text-muted">{{ review.review_date_submitted}}</small>
+              <!-- start of review textbox -->
+              {% if user_type == 1%}
+              <form action="{% url 'review:addreview' %}" method="post">
+                {% csrf_token %}
+                <label for="review-body">Review:</label>
+                <input name="caterer" type="hidden" value="{{ caterer.id }}">
+                <textarea name="review-body" class="form-control" rows="5" id="comment"></textarea>
+                <label for="review-rating">Rating:</label>
+                <div class="row">
+                  <div class="col-lg-12">
+                    <div class="star-rating">
+                      <span class="fa fa-star-o" data-rating="1"></span>
+                      <span class="fa fa-star-o" data-rating="2"></span>
+                      <span class="fa fa-star-o" data-rating="3"></span>
+                      <span class="fa fa-star-o" data-rating="4"></span>
+                      <span class="fa fa-star-o" data-rating="5"></span>
+                      <input type="hidden" name="review-rating" class="rating-value" value="5">
+                    </div>
+                  </div>
+                </div>
+
+                <div class="row">
+                  <input class="btn btn-full" type="submit" value="Submit" />
+                </div>
+              </form>
+              {% endif %}
+              <!-- end of review text box -->
+            </div>
+          </div>
+        </div>
+        <!-- end of review with stars -->
+        <!-- display reviews -->
+        {% for review in reviews %}
+          <hr>
+          <div class="card-body">
+            <div class="row">
+              <div class="col-sm-2">
+                <!-- for every user existing review -->
+                <div class="image-cropper comment-size m-auto">
+                  <img class="userIcon profile-pic" src="{{ review.consumer.profile_image.url }}">
+                </div>
+              </div>
+              <div class="col-sm-10">
+                <small class="row text-muted">{{ review.consumer }}</small>
+                <small class="row text-muted">{{ review.review_date_submitted}}</small>
+                <p class="row">{{ review.review_body }}</p>
+                <span class="stars">{{review.review_rating}}</span>
+              </div>
+            </div>
+          </div>
+        {% endfor %}
+        <hr>
+        <!-- end of display reviews -->
+      </div>
+      <!-- end of reviews -->
+
+      <!-- start of q & a main -->
+      <div class="questions">
+        {% if user_type == 1 %}
+        <!-- add a question to the caterer -->
+        <div class="card-body">
+          <div class="row">
+            <div class="col-sm-2">
+              <div class="image-cropper comment-size m-auto">
+                <img class="userIcon" src="{{ consumer.profile_image.url }}">
+              </div>
+            </div>
+            <div class="col-sm-10">
+              <small class="row text-muted">{{ review.consumer }}</small>
+              <small class="row text-muted">{{ review.review_date_submitted}}</small>
+              <form action="{% url 'review:addquestion' %}" method="post">
+                {% csrf_token %}
+                <label for="review-body">Write question here:</label>
+                <input name="caterer" type="hidden" value="{{ caterer.id }}">
+                <textarea name="question-body" class="form-control" rows="5" id="comment"></textarea>
+                <div class="row">
+                  <input class="btn btn-full" type="submit" value="Submit" />
+                </div>
+              </form>
+            </div>
+          </div>
+        </div>
+        {% endif %}
+        <!-- end of add -->
+        <!-- start of q & a 2 -->
+        <hr>
+          <div class="card-body">
+            {% for question in questions %}
+            <div class="row">
+              <div class="col-sm-2">
+                <div class="image-cropper comment-size m-auto">
+                  <img class="userIcon" src="/media/{{question.consumer.profile_image}}">
+                </div>
+                <!-- <img  class="userIcon" src="https://image.flaticon.com/icons/svg/17/17797.svg"> -->
+              </div>
+              <div class="col-sm-10">
+                <small class="row text-muted">{{ question.consumer.first_name }} {{ question.consumer.last_name }}</small>
+                <small class="row text-muted">{{ question.question_date_submitted }}</small>
+                <p class="row">{{ question.question_body}}</p>
+              </div>
+            </div>
+            <!-- answers div -->
+            <div class="answers m-sm-3">
+              <p>Answers</p>
+
+              {% for answer in answers %}
+                {% if answer.question.id == question.id %}
+                  {% csrf_token %}
+                  <!-- answer box -->
+                  <div class="p-sm-2">
+                    <div class="row">
+                      <div class="col-sm-3">
+                        <div class="image-cropper comment-size float-right">
+                          <img class="userIcon float-right" src="{{ caterer.profile_image.url }}">
+                        </div>
+                      </div>
+                      <div class="col-sm-9">
+                        <small class="row text-muted">{{ caterer.business_name }}</small>
+                        <small class="row text-muted">{{ caterer.first_name}} {{caterer.last_name}}</small>
+                        <small class="row text-muted">{{ answer.answer_date_submitted }}</small>
+                        <p class="row">{{ answer.answer_body }}</p>
+                      </div>
+                    </div>
+                  </div>
+                  <!-- end of answer box -->
+                {% endif %}
+              {% endfor %}
+
+              {% if user_type == 0 and user.catruser.id == question.caterer.id %}
+                <form action="{% url 'review:addanswer' %}" method="post">
+                  {% csrf_token %}
+                  <input name="caterer" type="hidden" value="{{ caterer.id }}">
+                  <input name="question" type="hidden" value="{{ question.id }}">
+                  <!-- answer box -->
+                  <div class="p-sm-2">
+                    <div class="row">
+                      <div class="col-sm-3">
+                        <div class="image-cropper comment-size float-right">
+                          <img class="userIcon float-right" src="{{ caterer.profile_image.url }}">
+                        </div>
+                      </div>
+                      <div class="col-sm-9">
+                          <textarea name="answer-body" class="form-control  m-sm-2" rows="5" id="comment"></textarea>
+                          <div class="row">
+                            <input class="btn btn-full" type="submit" value="Submit" />
+                          </div>
+                      </div>
+                    </div>
+                  </div>
+                  <!-- end of answer box -->
+                </form>
+              {% endif %}
+            </div>
+            {% endfor %}
+            <!-- end of answers div -->
+          </div>
+          <!-- end of q & a 2-->
+        <hr>
+      </div>
+      <!-- end of q & a main -->
+    </div>
+    <!-- end of feedback -->
+  </div>
+</section>
+{% endblock %}
+{% block script %}
+  <script src="{% static 'feedstream/js/tabs.js'%}"></script>
+  <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+  <script type="text/javascript" src="{% static 'feedstream/js/stars.js' %}"></script>
+  <script>$('.stars').stars();</script>
+{% endblock %}

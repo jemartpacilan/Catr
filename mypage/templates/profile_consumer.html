@@ -1,0 +1,52 @@
+{% extends 'feedstream/base.html' %} 
+{% load static %} 
+{% block content %} 
+  <section class="consumer-profile-section background"> 
+    <div class="container"> 
+      <div class="mypage-header center-elements"> 
+        <div class="image-cropper profile-size m-auto"> 
+            <img class="profile-pic" src="{{ consumer.profile_image.url }}"> 
+        </div> 
+        <h2>{{ consumer.first_name }} {{ consumer.last_name}}</h2> 
+        <h4>Wakanda Talisay</h4> 
+        <hr> 
+        <h5>{{ consumer.history.history_points }} foodie points</h5> 
+        <button class="btn btn-full"><a href="{% url 'mypage:editprofile_consumer' consumer.id %}">edit</a></button> 
+      </div> 
+          <div class="row"> 
+            <div class="mypage-card  ml-sm-4 mr-sm-4 my-4  p-5 col-sm-3"> 
+              <div class="row"> 
+                <h4>Suggestions:</h4> 
+              </div> 
+              <div class="suggestion-element row"> 
+                <img class="suggestion-image" src="https://upload.wikimedia.org/wikipedia/en/thumb/f/f7/Emirates_Flight_Catering_logo.svg/1280px-Emirates_Flight_Catering_logo.svg.png"> 
+              </div> 
+              <div class="suggestion-element row"> 
+                <img class="suggestion-image" src="https://seeklogo.com/images/P/piola-catering-logo-9F91E714CA-seeklogo.com.png"> 
+              </div> 
+              <div class="suggestion-element row"> 
+                <img class="suggestion-image" src="http://catersimply.com/wp-content/uploads/2013/05/Catering_logo.png"> 
+              </div> 
+            </div> 
+
+            <div class="mypage-card ml-sm-4 p-5 my-4 col-sm-8"> 
+              <h4>Transactions</h4> 
+              {% for transaction in consumer.history.transaction_set.all %}
+                    <div class="mypage-card m-sm-3 p-sm-5 ">
+                        <div class="center-elements row">
+                            <p>{{ transaction.transaction_date }} </p>
+                            <div class="col-sm-12">
+                                <h2>{{ transaction.caterer.business_name }}</h2>
+                                <h3>{{ transaction.caterer.street_address }}, {{ transaction.caterer.municipality_address }}</h3>
+                            </div>
+                        </div>
+                        <hr>
+                        <!-- <p>Reviews</p> -->
+                    </div>
+                {% endfor %}
+              </div> 
+          </div> 
+    </div> 
+  </section> 
+{% endblock %} 
+

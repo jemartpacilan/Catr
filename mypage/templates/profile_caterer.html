@@ -1,0 +1,88 @@
+{% extends 'feedstream/base.html' %}
+{% load static %}
+{% block styles %}
+  <link href="{% static 'mypage/css/profile_caterer.css' %}" rel="stylesheet">
+{% endblock %}
+
+{% block content %}
+  <section class="background strech p-0 m-0">
+    <div class="profile_wrapper m-0 p-sm-5">
+      <div class="pagecard order-container">
+        <div class="profile_container">
+          <div class="caterer_title_container">
+            <div class="row">
+              <div class="col-sm-12 ">
+                <div class="image-cropper profile-size m-auto"> 
+                    <img class="profile-pic"src="{{caterer.profile_image.url}}" alt="">
+                </div>
+              </div> 
+            </div>
+            <div class="caterer_title">
+              <div class="profile_name_container">
+                <h1>{{ caterer.business_name }}</h1>
+                <h3>{{ caterer.municipality_address }}{{ caterer.province_address }}</h3>
+              </div>
+            </div>
+          </div>
+
+          <div class="rating_container">
+            <span class="stars mx-auto my-2">{{average}}</span>
+          </div>
+          <button class="btn btn-full m-0">
+            <a href="{% url 'chat:chat_caterer' caterer.id %}">Chatbox</a>
+          </button>
+          <button class="btn btn-full my-1 ml-sm-5 mr-sm-0"><a href="{% url 'mypage:addmenu' caterer.id %}">Add Menu</a></button>
+          <button class="btn btn-full my-1 ml-sm-5 mr-sm-0"><a href="{% url 'mypage:editprofile_caterer' caterer.id %}">Edit Profile</a></button>
+          <hr>
+        </div>
+
+        <!-- start review x question tab -->
+        <div class="headercont row">
+
+        <div class="profile-tab card-header info-tab-header col-sm-4 selected" >
+            Info
+          </div>
+          <div class="profile-tab card-header menu-tab-header col-sm-4" >
+            Menu
+          </div>
+          <div class="profile-tab card-header photos-tab-header col-sm-4" >
+            Photos
+          </div>
+        </div>
+
+        <div class="info-div">
+          <hr>
+          <p>Info Div</p>
+          ....<p class="card-text">{{ caterer.business_description }}</p>
+        </div>
+
+        <div class="hide-div menu-div">
+          <hr>
+          <p>Menu Div</p>
+
+          {% for package in packages %}
+            {{ package.package_name }}
+            {% for menu in package.menu_set.all %}
+              <p>{{menu.course.course_name}}</p>
+              <img src="{{ menu.image_set.first.image_binary.url }}" alt="">
+            {% endfor %}
+          {% endfor %}
+        </div>
+
+        <div class="hide-div photos-div text-center">
+          <hr>
+          <ul>
+          {% for image in images %}
+            <li class="caterer-profile-photo-li">
+              <div class="profile-photo-caterer">
+                <p class="m-sm-2">Image name: {{ image.image_name }}</p>
+                <img class="caterer-profile-image" src="{{ image.image_binary.url }}" alt="">
+              </div>
+            </li>
+          {% endfor %}
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+{% endblock %}

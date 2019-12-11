@@ -1,0 +1,1025 @@
+h1, h2, h3, h4, h5, h6 {
+  font-family: "Raleway", Helvetica, Arial, sans-serif;
+}
+
+p {
+  line-height: 1.55;
+  color: #333;
+  font-size: 400;
+  font-family: "Raleway", Helvetica, Arial, sans-serif;
+}
+
+h1 {
+  font-size: 62px;
+}
+
+h2 {
+  font-size: 30px;
+}
+
+h3 {
+  font-size: 24px;
+  display: inline-block;
+}
+
+h4 {
+  font-size: 18px;
+}
+
+/* ==================================================
+    General
+  ================================================== */
+a {
+  -webkit-transition: 0.5s;
+  -o-transition: 0.5s;
+  transition: 0.5s;
+  display: block;
+  padding: 0px 20px;
+}
+
+/* ==================================================
+    Elements
+  ================================================== */
+.btn {
+  color: #fff;
+  background-color:#EF4836;
+  font-family: "Roboto", Helvetica, Arial, sans-serif;
+  font-weight: 800;
+
+  margin: 20px 20px;
+  border-radius: 8px;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
+  transition: all 0.3s cubic-bezier(.25,.8,.25,1);
+}
+
+.btn:hover   {
+  background-color: #EF4836 ;
+  box-shadow: 0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22);
+}
+
+.purebutton{
+  padding: 6px 25px;
+}
+
+.purebutton:hover {
+  color: #EF4836;
+  background-color:#fff !important;
+}
+
+
+
+.card {
+  position: relative;
+  padding: 0;
+  border: 0;
+  border-radius: 0;
+  margin: 0;
+  overflow: hidden;
+}
+
+a:hover {
+  text-decoration: none !important;
+}
+
+.scrolltop {
+  display: none;
+  position: fixed;
+  bottom: 15px;
+  right: 15px;
+  width: 42px;
+  height: 42px;
+  border-radius: 50%;
+  background: #EF4836;
+  color: #fff;
+  text-align: center;
+  font-size: 24px;
+}
+
+.scrolltop:hover, .scrolltop:active, .scrolltop:focus {
+  color: #fff !important;
+  opacity: .75;
+}
+
+/* ==================================================
+    Hero Styling
+  ================================================== */
+.hero {
+  display: table;
+  position: relative;
+  background-image: url(../images/cover.jpg);
+  background-size: cover;
+  padding: 150px 0;
+  color: #fff;
+  width: 100%;
+  height: 100vh;
+  background-attachment: fixed;
+  background-position: center;  
+  background-repeat: no-repeat;
+}
+
+.searchbar {
+  padding: 0px 100px;
+  margin: 0px 100px;
+}
+/* ==================================================
+    Team Styling
+  ================================================== */
+.team h2 {
+  color: #EF4836;
+}
+
+.team .col-sm-3 {
+  padding: 0;
+}
+
+.team .card > a {
+  display: block;
+}
+
+.team .card img {
+  width: 100%;
+}
+
+.team .card h4 {
+  color: #fff;
+  text-transform: uppercase;
+}
+
+.team .card p {
+  font-size: 11px;
+  color: #fff;
+  opacity: .75;
+  margin: 0;
+  padding: 0 35px;
+}
+
+.team .card .social-nav {
+  margin-bottom: 45px;
+}
+
+.team .card .social-nav a {
+  color: #fff;
+  font-size: 16px;
+  margin: 0 4px;
+}
+
+.team .card .social-nav a:hover {
+  opacity: .75;
+}
+
+.team .card:hover .team-over {
+  opacity: 1;
+  visibility: visible;
+}
+
+.team .card:hover .card-title-wrap {
+  background-color: #EF4836;
+}
+
+.team .card:hover .card-title-wrap .card-title, .team .card:hover .card-title-wrap .card-text {
+  color: #fff;
+}
+
+.team .team-over {
+  padding-top: 45px;
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.8);
+  top: 0;
+  left: 0;
+  text-align: center;
+  opacity: 0;
+  visibility: hidden;
+  -webkit-transition: all 0.3s ease;
+  -moz-transition: all 0.3s ease;
+  -o-transition: all 0.3s ease;
+  transition: all 0.3s ease;
+}
+
+.team .card-title-wrap {
+  padding: 15px 25px;
+  position: relative;
+  z-index: 9;
+  background-color: #fff;
+}
+
+.team .card-title-wrap .card-title, .team .card-title-wrap .card-text {
+  font-family: "Raleway", Helvetica, Arial, sans-serif;
+  display: block;
+  margin: 0;
+}
+
+.team .card-title-wrap .card-title {
+  font-size: 24px;
+  color: #333;
+}
+
+.team .card-title-wrap .card-text {
+  font-size: 18px;
+  color: #999;
+}
+
+/* ==================================================
+  Footer Styling
+  ================================================== */
+.site-footer {
+  background-color: #111;
+  padding: 0;
+  width: 100%;
+}
+
+.site-footer h2, .site-footer p {
+  color: #fff;
+}
+
+.site-footer p {
+  opacity: .75;
+  line-height: 2.0925;
+}
+
+.site-footer h2,
+.site-footer .btn {
+  margin-bottom: 25px;
+}
+
+.site-footer .social-nav a {
+  color: #fff;
+  opacity: .25;
+}
+
+.site-footer .social-nav a:hover {
+  opacity: 1;
+}
+
+.site-footer .bottom {
+  background-color: #000;
+  padding: 20px 0;
+}
+
+.site-footer .bottom .list-inline, .site-footer .bottom p {
+  margin: 0;
+}
+
+.site-footer .bottom .list-inline {
+  position: relative;
+  top: 5px;
+}
+
+.site-footer .bottom .list-inline a {
+  color: #fff;
+  font-family: "Roboto", Helvetica, Arial, sans-serif;
+  margin-right: 15px;
+}
+
+.site-footer .bottom .list-inline a:hover {
+  color: #EF4836;
+}
+
+.site-footer .credits {
+  color: #ddd;
+}
+
+.site-footer .credits a {
+  color: #EF4836;
+}
+
+/* ==================================================
+  Responsive Styling
+  ================================================== */
+@media (max-width: 61.9em) {
+  section,
+  .block,
+  .cta {
+    padding: 35px 0;
+  }
+  .features {
+    padding-bottom: 5px;
+  }
+  p,
+  .block p {
+    margin: 0;
+  }
+  .hero-brand {
+    margin-bottom: 35px;
+  }
+  .tagline {
+    margin: 35px 0;
+  }
+  h1 {
+    font-size: 32px;
+    margin: 0;
+  }
+  h2,
+  .tagline {
+    font-size: 24px;
+  }
+  h2 {
+    margin-bottom: 25px;
+  }
+  h3 {
+    font-size: 14px;
+  }
+  .hero {
+    padding: 75px 0;
+  }
+  .stats-col {
+    margin-bottom: 25px;
+  }
+  .block {
+    height: auto;
+  }
+  .feature-col {
+    padding-bottom: 30px;
+  }
+  .portfolio-grid .card h3.card-title {
+    font-size: 18px !important;
+  }
+  .portfolio-grid .card .card-text {
+    font-size: 13px;
+  }
+  .team .team-over {
+    padding-top: 20px;
+  }
+  .team .card .social-nav {
+    margin-bottom: 15px;
+    padding: 0;
+  }
+  .site-footer .social-nav {
+    margin-bottom: 35px;
+  }
+  .site-footer .list-inline {
+    text-align: center;
+    padding-bottom: 15px;
+  }
+  .site-footer .list-inline li {
+    display: inline-block;
+  }
+}
+
+@media (max-width: 767px) {
+  .block {
+    padding-left: 30px;
+    padding-right: 30px;
+  }
+}
+
+.feed{
+  max-width: 2000px;
+  margin: 0 auto;
+  padding: 0 2% 1%;
+}
+
+.feed_title{
+  background-color: #EF4836;
+  color: white;
+  display: flex;
+  justify-content: flex-start;
+  padding: 10px 20px;
+  flex-direction: column;
+}
+
+.feed_title h6, .feed_title p{
+  display: flex;
+  margin: 0;
+  color: white;
+}
+.feed__entries{
+  margin: 0 0 20px;
+  padding: 0;
+  list-style: none;
+  display: block;
+  text-align: center;
+  width: 100%;
+}
+
+
+.feed__entries li {
+  width: 450px;
+  height: 300px;
+  display: inline-block;
+  margin: 30px 20px;
+}
+
+.feed__entry__box {
+  width: 100%;
+  height: 100%;
+  position: relative;
+  cursor: pointer;
+  -webkit-transition: 0.3s ease-in-out, -webkit-transform 0.3s ease-in-out;
+  -moz-transition: 0.3s ease-in-out, -moz-transform 0.3s ease-in-out;
+  transition: all 0.3s ease-in-out, transform 0.3s ease-in-out;
+
+}
+
+.feed__entry__box--image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.feed_description{
+  background-color: #FFF8F7;
+  display: flex;
+  justify-content: flex-start;
+  padding: 10px 10px;
+}
+
+.container {
+  position: relative;
+  width: 100%;
+  padding:0px 0px;
+}
+
+.order-container {
+  position: relative;
+  width: 100%;
+  padding:0px 0px;
+}
+
+.container:hover .overlay {
+  opacity: 1;
+}
+
+.overlay {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 100%;
+  width: 100%;
+  opacity: 0;
+  transition: .5s ease;
+  background-color: #ff604fe3;
+}
+
+.text {
+  color: white;
+  font-size: 20px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  -ms-transform: translate(-50%, -50%);
+  text-align: center;
+}
+
+input[type=text] {
+    -webkit-transition: width 0.4s ease-in-out;
+    transition: width 0.4s ease-in-out;
+}
+.searchbox {
+  margin: 20px 5px;
+}
+/* ==================================================
+  Navbar Styling
+  ================================================== /**/
+
+.navbar{
+  position: fixed;
+  z-index: 20;
+  width: 100%;
+  background-color: #EF4836;
+  height: 55px;
+  display: flex;
+  padding: 0;
+}
+
+.navbar a{
+  color: white;
+  text-transform: uppercase;
+  margin: 0 20px;
+}
+
+#navbarSupportedContent{
+  background-color: #EF4836;
+}
+.collapse{
+  justify-content: flex-end;
+}
+
+.sub_nav{
+  width: 100%;
+  height: 80px;
+  display: flex;
+  justify-content: center;
+  background-color: white;
+  z-index: 10;
+  box-shadow: 0px 1px 20px 0px;
+}
+
+.sub_nav a{
+  padding: 25px 40px;
+  font-size: 20px;
+  color: black;
+}
+
+.sub_nav ul{
+  display: flex;
+  align-items: center;
+  margin: 0;
+  padding: 0;
+}
+
+.sub_nav li{
+  list-style: none;
+}
+
+.sticky {
+  position: fixed;
+  top: 50px;
+  width: 100%;
+}
+
+.sub_nav ul li a:hover{
+  border-bottom-style: solid;
+  color: #EF4836;
+  background-color: #E8E8E8;
+}
+
+.navbar-nav li a{
+  border-bottom-style: solid;
+  border-color: #EF4836;
+  margin: 0px 0px;
+  padding: 14px 40px;
+}
+
+.navbar-nav li a:hover{
+  border-bottom-style: solid;
+  border-color: white;
+  background-color:#ff6348;
+}
+
+.logo {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+.logodiv {
+  display: block;
+  margin: auto;
+}
+
+.navbar_main li{
+  list-style-type: none;
+  float:right;
+}
+
+.navbar_main ul li a:hover{
+  color: #EF4836;
+  background-color: white;
+  border-radius: 8px;
+}
+
+.navbar_main a{
+  padding: 4px 8px;
+}
+/* ==================================================
+  Order Styling
+  ================================================== /**/
+
+.ordercard {
+  box-shadow: 0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22);
+  margin: auto auto;
+  max-width: 800px;
+  padding: 50px 50px;
+  background-color:white;
+  border-radius: 5px;
+}
+
+.star-rating {
+  line-height:32px;
+  font-size:1.25em;
+}
+
+.star-rating .fa-star{
+  color: #F7CA18;
+  cursor: pointer;
+}
+
+.headercard {
+  border-bottom-style: solid;
+}
+
+.headercont {
+  margin: 5px 5px;
+  padding: 5px 5px;
+}
+
+.photoheader {
+  background-color: #EF4836;
+  color:white;
+}
+
+.prodreviews {
+  cursor: pointer;pointer;
+}
+
+.selected {
+  background-color: #EF4836;
+  color:white;
+  box-shadow: 2px 2px 20px 0.5px #222;
+}
+
+.bookbtn {
+  background-color: #EF4836;
+  font-family: "Roboto", Helvetica, Arial, sans-serif;
+  font-weight: 900;
+  font-size: 27px;
+  color: white;
+  padding: 8px 25px;
+  margin-left: 30px;
+  border-radius: 8px;
+  float: right;
+}
+
+.bookbtn:hover {
+  background-color: white;
+  color: #EF4836;
+}
+
+.background {
+  background: #e2e1e0;
+}
+
+.bookbtn:focus {
+  color: white;
+}
+
+.userIcon {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.orderphotos img {
+  height: 160px;
+  width: 100%;
+}
+
+.starting{
+  height: 100%;
+  min-height:100%;
+  position:relative;
+}
+
+html,
+body {
+   margin:0;
+   padding:0;
+   height:100%;
+}
+
+.wrapper{
+  padding-top: 55px;
+}
+
+
+.tab{
+  min-height:200px;
+  background:#d9d9d9;
+  display:none;
+  padding:12px;
+  color:#444;
+}
+
+.questions{
+  display: none;
+}
+
+table {
+  margin: 0% 12% 0% 12%;
+}
+
+td.form-field input {
+  max-height: 10%;
+  max-width: 100%;
+  margin: 5% 10% !important;
+}
+
+td.form-field textarea {
+  max-width: 58%;
+  margin: 5% 10% !important;
+}
+
+
+.order {
+  padding: 20px 20px;
+}
+
+.order-display-image {
+  height: 400px;
+  width: 100%;
+}
+
+.order-photos-div {
+  padding: 5px 5px;
+  margin-top: 80px;
+}
+
+.photopreview {
+  padding: 5px 10px;
+  cursor: pointer;
+}
+
+.zoomdiv{
+  height: 160px;
+  overflow:hidden;
+}
+
+.orderphotos .container{
+  height: 100%;
+  width: 100%;
+  transition: all 0.5s ease;
+}
+
+.orderphotos .container:hover {
+  transform: scale(1.2);
+}
+
+.order-reviews-questions-div {
+  padding: 5px 5px;
+  margin-top: 80px;
+}
+/* ==================================================
+  Carousel Styling
+  ================================================== /**/
+
+.order-photoview-modal {
+  height:500px;
+  width:700px;
+  background-color: #101010;
+  margin:auto auto;
+  border-radius:5px;
+  padding: 0px;
+  overflow: none;
+  box-shadow: 0 19px 38px rgba(0,0,0,0.30), 0 15px 12px rgba(0,0,0,0.22);
+}
+
+.order-carousel-image {
+  height: 500px;
+  width: auto;
+  margin: auto;  
+}
+
+.btn-0 {
+  color: random-color($max:200);
+  color-dark: shade($btn-color, 40%);
+  color: tint($btn-color);
+}
+
+.hover-style-carousel {
+  background-color:#EF4836;
+  height: 60px;
+  width: 60px;
+  padding: auto;
+  margin: auto;
+  border-radius: 50%;
+  opacity: 0.1;
+  transition-duration: 0.5s;
+}
+
+.hover-style-carousel:hover {
+  background-color:#EF4836;
+  height: 60px;
+  width: 60px;
+  padding: auto;
+  margin: auto;
+  border-radius: 50%;
+  opacity: 0.8;
+  transition-duration: 0.5s;
+}
+
+.inner-hover-style-carousel{
+  margin: 18px 10px;
+}
+
+.carousel-control-next, .carousel-control-prev {
+  width:20%;
+}
+/* ==================================================
+  Payment Styling
+  ================================================== /**/
+
+.paymentcard {
+  border-radius: 5px;
+  box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);
+  padding: 50px 55px;
+  margin: 20px 0px;
+  background-color:white;
+}
+
+.payment-method {
+  margin: 20px 20px;
+  padding: 20px 20px;
+  max-height: 130px;
+  max-width: 130px;
+  cursor: pointer;
+}
+
+.payment-method:hover, .activepayment {
+  border-style: solid;
+  border-color: #EF4836;
+  border-radius: 20px;
+}
+
+
+/* ==================================================
+  Chat Styling
+  ================================================== /**/
+.chat-card {
+  max-width: 700px;
+  box-shadow: 0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22);
+  border-radius: 5px;
+  overflow: hidden;
+}
+
+.chat-message-area {
+  background-color: white;
+}
+
+.chatheader {
+  height: 100px;
+  background-color: #EF4836;
+}
+
+.chat-image {
+  max-height: 50px;
+  float: left;
+}
+
+.chat-name {
+  color: #fff;
+}
+
+.chathistory-div {
+  margin-top: 10px;
+}
+
+.chathistory-contents{
+  padding-bottom: 0px;
+}
+
+.chathistory-cater-name {
+  font-weight: bold;
+  font-size: 16px;
+}
+
+.chathistory-caterer-name {
+  font-size: 14px;
+}
+
+.preview {
+  font-size: 10px;
+}
+
+.chatbox-image {
+  max-height: 25px;
+}
+
+.chatbubble {
+  margin:10px 10px 10px 10px;
+  padding:10px;
+  border-radius:15px;
+}
+
+.chatbox-div-image {
+  padding:0px 10px;
+}
+
+.chathistory-div {
+  padding:0px 0px;
+}
+
+.chatbox-spacer {
+  margin:0px 30px;
+}
+
+.me {
+  background-color: #EF4836;
+  color: #FFF;
+}
+
+.caterer {
+  background-color: #d9d9d9;
+  color: #000;
+}
+
+.chatspace {
+  min-height: 680px;
+}
+
+.message-sender {
+  background-color: #EF4836;
+  height:200px;
+}
+
+.messagebox{
+  height: 600px;
+  color:white;
+  margin: 0px 0px;
+}
+
+.chat-send-div {
+  background-color: #EF4836;
+  margin:0px 0px;
+  height:80px;
+  padding:20px 16px;
+}
+.chathistory {
+  height: 680px;
+}
+.chat-input {
+}
+
+.chatbox {
+  max-height: 680px;
+  padding: 10px;
+}
+
+
+/* ==================================================
+  Mypage Styling
+  ================================================== /**/
+.mypage-header {
+  box-shadow: 0 10px 20px rgba(0,0,0,0.19), 0 6px 6px rgba(0,0,0,0.23);
+  padding: 10px 20px;
+  widows: 100%;
+  background-color:white;
+  border-radius: 5px;
+}
+
+.consumer-profile-section {
+  padding: 20px 20px;
+}
+
+.mypage-card {
+  box-shadow: 0 10px 20px rgba(0,0,0,0.19), 0 6px 6px rgba(0,0,0,0.23);
+  background-color:white;
+  border-radius: 5px;
+}
+.suggestion-image {
+  max-height: 100px;
+  max-width: 100%;
+}
+
+.suggestion-element {
+  margin: 50px 10px;
+}
+
+.center-elements {
+  text-align: center;
+}
+
+.formrow {
+  padding: 10px 0px;
+}
+/* input[type=button] {
+  display: none;
+} */
+
+.profile-pic {
+  display: inline;
+  margin: 0 auto;
+  height: 100%;
+  width: auto;
+}
+
+.profile-size {
+  width: 150px;
+  height: 150px;
+}
+
+.comment-size {
+  width: 80px;
+  height: 80px;
+}
+
+.image-cropper {
+  position: relative;
+  overflow: hidden;
+  border-radius: 50%;
+  border-style: solid;
+  border-color: #EF4836;
+  border-width: 4px;
+}
+
+/* ==================================================
+  Remove Styling
+  ================================================== /**/
+
+/* ==================================================
+  Stars Styling
+  ================================================== /**/
+span.stars, span.stars span {
+    display: block;
+    background: url(../images/stars.png) 0 -20px repeat-x;
+    width: 100px;
+    height: 20px;
+}
+
+span.stars span {
+    background-position: 0 0;
+}
+

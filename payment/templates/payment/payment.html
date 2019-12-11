@@ -1,0 +1,140 @@
+{% extends 'feedstream/base.html' %}
+{% load static %}
+
+{% block content %}
+  <section class="payment background">
+    <div class="container">
+      <div class="row">
+          <div class="col-sm-8">
+            <div class="paymentcard">
+              <div class="card">
+                <div class="card-body">
+                  <h5 class="card-title">Event Details</h5>
+                    <form>
+                        <div class="row">
+                          <div class="col-sm-12">
+                            <label for="date_started">Event Date</label>
+                            <input type="date">
+                            <input type="time">
+                          </div>
+                        </div>
+                      <button type="submit" class="btn btn-full">Save</button>
+                    </form>
+                </div>
+              </div>
+            </div>
+
+          <div class="row">
+            <div class="col-sm-12">
+              <div class="paymentcard">
+                <div class="card">
+                  <div class="card-body">
+                    <h5 class="card-title">Personal Details</h5>
+                    <p class="card-text">{{current_user.first_name}} {{current_user.last_name}}</p>
+                    <p class="card-text">{{current_user.email}}</p>
+                    <p class="card-text">+63 9328500841</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+            <div class="row">
+              <div class="col-sm-12">
+                <div class="paymentcard">
+                  <div class="card">
+                    <div class="card-body">
+                      <h5 class="card-title">Payment Method</h5>
+                      <div class="payment-img-row row">
+                        <div class="payment-method onhand col-sm-4">
+                          <img src="https://image.flaticon.com/icons/svg/189/189093.svg">
+                        </div>
+                        <div class="payment-method paypal col-sm-4">
+                          <img src="https://image.flaticon.com/icons/svg/174/174861.svg">
+                        </div>
+                        <div class="payment-method mastercard col-sm-4">
+                          <img src="https://image.flaticon.com/icons/svg/196/196561.svg">
+                        </div>
+                      </div>
+                      <div class="row">
+                        <form class="mastercard_form payment_method_form m-0" action="{% url 'payment:payment' caterer.id  %}" method="post"> 
+                          {% csrf_token %}
+
+                          {% for field in credit_card_payment_form %}
+                            <div class="form-group">
+                              <p>{{ field.label_tag }}</p>
+                              {{ field }}
+                            </div>
+                          {% endfor %}
+                          <button type="submit" class="btn btn-full">Order</button>
+                          <button type="submit" class="btn btn-full">
+                            <a href="{% url 'chat:chat_consumer' caterer.id %}">Send a message</a>
+                          </button>
+                        </form>
+
+                        <form class="onhand_form payment_method_form m-auto" action="{% url 'payment:payment' caterer.id %}" method="post">
+                          {% csrf_token %}
+
+                          {% for field in cash_payment_form %}
+                          <div class="form-group">
+                            <p>{{ field.label_tag }}</p>
+                            {{ field }}
+                          </div>
+                          {% endfor %}
+                          
+                          <button type="submit" class="btn btn-full">Order</button>
+                          <button type="submit" class="btn btn-full">
+                            <a href="{% url 'chat:chat_consumer' caterer.id %}">Send a message</a>
+                          </button>
+                        </form>
+
+                        <form class="paypal_form payment_method_form m-auto" action="{% url 'payment:payment' caterer.id %}" method="post">
+                          {% csrf_token %} 
+
+                          {% for field in paypal_payment_form %}
+                            <div class="col-sm-12">
+                              <div class="form-group">
+                                <p>{{ field.label_tag}}</p>
+                                {{ field }}
+                              </div>
+                            </div>                              
+                          {% endfor %}                          
+                          <button type="submit" class="btn btn-full">Order</button>
+                          <button type="submit" class="btn btn-full">
+                            <a href="{% url 'chat:chat_consumer' caterer.id %}">Send a message</a>
+                          </button>
+                        </form>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+
+        <div class="col-sm-4">
+          <div class="paymentcard">
+            <div class="card">
+              <div class="card-body">
+                {% for item in item_set %}
+                    <p>{{ item.menu.course.course_name }}  {{ item.item_quantity }} x PHP {{ item.menu.course.course_price }}</p>
+                {% endfor %}
+                <a href="{% url 'orders:book' caterer.id %}" class="btn btn-full">Edit</a>
+                <br>
+                <br>
+                TOTAL: {{ tray.tray_cumulative_price }}
+              </div>
+            </div>
+          </div>
+        </div>
+        </div>
+
+
+    </div>
+  </section>
+{% endblock %}
+
+{% block script %}
+  <script src="{% static 'payment/js/active.js'%}" type="text/javascript"></script>
+{% endblock %}

@@ -1,0 +1,117 @@
+{% extends 'chat/base.html' %}
+{% load static %}
+{% block content %}
+<section class="order strech m-auto p-auto">
+    <div class="container pt-sm-2">
+        <div class="chat-card m-auto">
+            <div class="chatheader py-auto">
+                <div class="row h-100 mx-2">
+                    <div class="col-sm-2">
+                        <a href="{% url 'mypage:profile_caterer' caterer.id %}">
+                            <button class="btn btn-full">
+                                Back
+                            </button>
+                        </a>
+                    </div>
+                    <div class="col-sm-10  p-sm-2">
+                        <div class="row h-100 m-auto p-auto">
+                            {% if consumer %}                                
+                            <div class="col-sm-4">
+                                <div class="image-cropper comment-size float-right">
+                                    <img class="userIcon profile-pic ot-trigger" src="{{ consumer.profile_image.url }}">
+                                </div>
+                            </div>
+                            <div class="col-sm-8 p-auto m-auto">
+                                {% if consumer %}
+                                    <p class="chat-name"><strong>{{ consumer.first_name}} {{ consumer.last_name }}<strong></p>
+                                {% endif %}
+                            </div>
+                            {% endif %}
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row m-0">
+                <div class="chathistory pre-scrollable col-sm-4 pl-0">
+                    <!-- REPEAT HERE -->
+                    {% for consumer in consumers %}
+                    <a href="{% url 'chat:chat_caterer_specific' caterer.id consumer.id%}">
+                        <div class="row">
+                            <div class="col-sm-4 m-auto p-auto">
+                                <div class="image-cropper chat-size m-auto p-0">
+                                    <img class="userIcon profile-pic" src="{{ consumer.profile_image.url }}">
+                                </div>
+                            </div>
+                            <div class="chathistory-div col-sm-8">
+                                <p class="chathistory-contents chathistory-cater-name mt-0 p-0">{{ consumer.first_name}} {{ consumer.last_name }}</p>
+                                <p class="chathistory-contents chathistory-caterer-name m-0 p-0">user
+                                    <p>
+                                        <p class="chathistory-contents preview m-0 p-0">Lorem ipsum dolor...</p>
+                            </div>
+                        </div>
+                    </a>
+                    <hr> {% endfor %}
+                </div>
+                <div class="col-sm-8 p-0">
+                    <div class="chatbox p-0">
+                        <div class="messagebox pre-scrollable">
+                            <div class="chatbox-spacer">
+                                {% for message in messages %}
+                                <div class="row">
+                                    {% if not message.message_owned_by_consumer %}
+                                    <div class="col-sm-11 px-0">
+                                        <div class="me chatbubble">
+                                            {{ message.message_body }}
+                                            <turpis class=""></turpis>
+                                        </div>
+                                    </div>
+                                    <div class="chatbox-div-image col-sm-1 m-auto px-0">
+                                        <div class="image-cropper chat-size m-auto p-0">
+                                            <img class="userIcon profile-pic" src="{{ message.caterer.profile_image.url }}">
+                                        </div>
+                                    </div>
+                                    {% else %}
+                                    <div class="chatbox-div-image col-sm-1 m-auto ">
+                                        <div class="image-cropper chat-size m-0 p-0">
+                                            <img class="userIcon profile-pic" src="{{ message.consumer.profile_image.url }}">
+                                        </div>
+                                    </div>
+                                    <div class="col-sm-11 pr-sm-0 pl-sm-3">
+                                        <div class="caterer chatbubble">
+                                            {{ message.message_body }}
+                                            <turpis class=""></turpis>
+                                        </div>
+                                    </div>
+                                    {% endif %}
+                                </div>
+                                {% endfor %}
+                            </div>
+                        </div>
+                        <div>
+                            {% if consumer %}
+                            <form id="chat-form" action="{% url 'chat:chat_caterer_specific' caterer.id consumer.id %}" method="post">
+                                {% else %}
+                                <form id="chat-form">
+                                    {% endif %} {% csrf_token %}
+                                    <div class="chat-send-div">
+                                        <div class="row">
+                                            <div class="col-sm-10">
+                                                <input class="form-control" type="text" id="msgTxt" name="msgTxt">
+                                            </div>
+                                            <div class="col-sm-2 m-0 p-0">
+                                                <input class="btn btn-full m-0" type="submit" value="Send">
+                                            </div>
+                                        </div>
+                                    </div>
+                                </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+{% endblock %}
+{% block script %}
+<script type="text/javascript" src="{% static 'chat/js/change.js' %}"></script>
+{% endblock %}

@@ -1,0 +1,103 @@
+{% extends 'feedstream/base.html' %} {% load static %} {% block content %}
+<!-- Team -->
+<section class="team" id="team">
+  <div class="container">
+    <h2 class="text-center">
+        Meet our team
+    </h2>
+
+    <div class="row">
+      <div class="col-sm-3 col-xs-6">
+        <div class="card card-block">
+          <a href="{% url 'feedstream:index' %}"><img alt="" class="team-img" src="{% static 'feedstream/images/team-1.jpg' %}">
+              <div class="card-title-wrap">
+                <span class="card-title">Jace Roldan</span> <span class="card-text">Backend Developer</span>
+              </div>
+
+              <div class="team-over">
+                <h4 class="hidden-md-down">
+                  Connect with me
+                </h4>
+
+                <nav class="social-nav">
+                  <a href="#"><i class="fa fa-twitter"></i></a> <a href="#"><i class="fa fa-facebook"></i></a> <a href="#"><i class="fa fa-linkedin"></i></a> <a href="#"><i class="fa fa-envelope"></i></a>
+          </nav>
+          <p>
+            I am a morning person.
+          </p>
+        </div>
+        </a>
+      </div>
+    </div>
+
+    <div class="col-sm-3 col-xs-6">
+      <div class="card card-block">
+        <a href="#"><img alt="" class="team-img" src="{% static 'feedstream/images/team-2.jpg' %}">
+              <div class="card-title-wrap">
+                <span class="card-title">Jemart Pacilan</span> <span class="card-text">Frontend Developer</span>
+              </div>
+
+              <div class="team-over">
+                <h4 class="hidden-md-down">
+                  Connect with me
+                </h4>
+
+                <nav class="social-nav">
+                  <a href="#"><i class="fa fa-twitter"></i></a> <a href="#"><i class="fa fa-facebook"></i></a> <a href="#"><i class="fa fa-linkedin"></i></a> <a href="#"><i class="fa fa-envelope"></i></a>
+        </nav>
+        <p>
+          I design websites for fun.
+        </p>
+      </div>
+      </a>
+    </div>
+  </div>
+
+  <div class="col-sm-3 col-xs-6">
+    <div class="card card-block">
+      <a href="#"><img alt="" class="team-img" src="{% static 'feedstream/images/team-3.jpg' %}">
+              <div class="card-title-wrap">
+                <span class="card-title">Brandon Flores</span> <span class="card-text">Backend Developer</span>
+              </div>
+
+              <div class="team-over">
+                <h4 class="hidden-md-down">
+                  Connect with me
+                </h4>
+                <nav class="social-nav">
+                  <a href="#"><i class="fa fa-twitter"></i></a> <a href="#"><i class="fa fa-facebook"></i></a> <a href="#"><i class="fa fa-linkedin"></i></a> <a href="#"><i class="fa fa-envelope"></i></a>
+      </nav>
+      <p>
+        I am a DOTA master.
+      </p>
+    </div>
+    </a>
+  </div>
+  </div>
+
+  <div class="col-sm-3 col-xs-6">
+    <div class="card card-block">
+      <a href="#"><img alt="" class="team-img" src="{% static 'feedstream/images/team-4.jpg' %}">
+                <div class="card-title-wrap">
+                  <span class="card-title">Michael Pacana</span> <span class="card-text">Frontend Developer</span>
+                </div>
+                <div class="team-over">
+                  <h4 class="hidden-md-down">
+                    Connect with me
+                  </h4>
+                  <nav class="social-nav">
+                    <a href="#"><i class="fa fa-twitter"></i></a> <a href="#"><i class="fa fa-facebook"></i></a> <a href="#"><i class="fa fa-linkedin"></i></a> <a href="#"><i class="fa fa-envelope"></i></a>
+      </nav>
+      <p>
+        I am dead inside.
+      </p>
+    </div>
+    </a>
+  </div>
+  </div>
+  </div>
+  </div>
+
+</section>
+<!-- /Team -->
+{% endblock %}

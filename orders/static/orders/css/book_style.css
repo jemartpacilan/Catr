@@ -1,0 +1,739 @@
+@import url('https://fonts.googleapis.com/css?family=Roboto:400,500,700');
+html, body, .wrapper, #starting, .wrap{
+  height: 100%;
+}
+*, *:before, *:after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+h1,h2,h3,h4,h5{
+  margin: 0;
+}
+body {
+  font-family: "Open Sans", Helvetica, Arial, sans-serif;
+  background: #ededed;
+}
+
+input, button {
+  border: none;
+  outline: none;
+  background: none;
+  font-family: "Open Sans", Helvetica, Arial, sans-serif;
+}
+
+.tip {
+  font-size: 20px;
+  margin: 40px auto 50px;
+  text-align: center;
+}
+.order_container{
+  height: 91%;
+      overflow: auto;
+}
+.cont {
+  overflow: hidden;
+  position: relative;
+  width: 1000px;
+  height: 80%;
+  margin: 20px auto 100px;
+  background: #fff;
+}
+
+.form {
+  position: relative;
+  width: 800px;
+  height: 100%;
+  transition: transform 1.2s ease-in-out;
+  /* padding: 50px 30px 0; */
+}
+
+.myorder{
+  align-items: center;
+  justify-content: space-between;
+  display: flex;
+  height: 60px;
+}
+
+.select_button{
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+      height: 10%;
+      display: flex;
+      align-items: center;
+}
+.sub-cont {
+  overflow: hidden;
+      position: absolute;
+      left: 800px;
+      top: 0;
+      width: 1000px;
+      height: 100%;
+      padding-left: 200px;
+      background: #fff;
+      transition: transform 1.2s ease-in-out;
+}
+.cont.s--signup .sub-cont {
+  transform: translate3d(-800px, 0, 0);
+}
+
+button {
+  display: block;
+  margin: 0 auto;
+  width: 260px;
+  height: 36px;
+  border-radius: 30px;
+  color: black;
+  font-size: 15px;
+  cursor: pointer;
+}
+
+.img {
+  overflow: hidden;
+  z-index: 2;
+  position: absolute;
+  left: 0;
+  top: 0;
+      width: 200px;
+  height: 100%;
+  padding-top: 360px;
+}
+.img:before {
+  content: "";
+  position: absolute;
+  right: 0;
+  top: 0;
+  width: 900px;
+  height: 100%;
+  background-image: url("https://thegrounds.com.au/wp-content/uploads/2016/12/flatlay-1200x400.jpg");
+  background-size: cover;
+  transition: transform 1.2s ease-in-out;
+}
+.img:after {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.6);
+}
+.cont.s--signup .img:before {
+  transform: translate3d(640px, 0, 0);
+}
+.img__text {
+  z-index: 2;
+  position: absolute;
+  left: 0;
+  top: 50px;
+  width: 100%;
+  padding: 0 20px;
+  text-align: center;
+  color: #fff;
+  transition: transform 1.2s ease-in-out;
+}
+.img__text h2 {
+  margin-bottom: 10px;
+  font-weight: normal;
+}
+.img__text p {
+  font-size: 14px;
+  line-height: 1.5;
+}
+.cont.s--signup .img__text.m--up {
+  transform: translateX(520px);
+}
+.img__text.m--in {
+  transform: translateX(-520px);
+}
+.cont.s--signup .img__text.m--in {
+  transform: translateX(0);
+}
+.img__btn {
+  overflow: hidden;
+  z-index: 2;
+  position: relative;
+  width: 100px;
+  height: 36px;
+  margin: 0 auto;
+  background: transparent;
+  color: #fff;
+  text-transform: uppercase;
+  font-size: 15px;
+  cursor: pointer;
+}
+.img__btn:after {
+  content: "";
+  z-index: 2;
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  border: 2px solid #fff;
+  border-radius: 30px;
+}
+.img__btn span {
+  position: absolute;
+  left: 0;
+  top: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 100%;
+  transition: transform 1.2s;
+}
+.img__btn span.m--in {
+  transform: translateY(-72px);
+}
+.cont.s--signup .img__btn span.m--in {
+  transform: translateY(0);
+}
+.cont.s--signup .img__btn span.m--up {
+  transform: translateY(72px);
+}
+
+h2 {
+  width: 100%;
+  font-size: 26px;
+  text-align: center;
+}
+
+label {
+  display: block;
+  width: 260px;
+  margin: 25px auto 0;
+  text-align: center;
+}
+label span {
+  font-size: 12px;
+  color: #cfcfcf;
+  text-transform: uppercase;
+}
+
+input {
+  display: block;
+  width: 100%;
+  margin-top: 5px;
+  padding-bottom: 5px;
+  font-size: 16px;
+  text-align: center;
+}
+
+.forgot-pass {
+  margin-top: 15px;
+  text-align: center;
+  font-size: 12px;
+  color: #cfcfcf;
+}
+
+.submit {
+  margin-top: 40px;
+  margin-bottom: 20px;
+  background: #d4af7a;
+  text-transform: uppercase;
+}
+
+.fb-btn {
+  border: 2px solid #d3dae9;
+  color: #8fa1c7;
+}
+.fb-btn span {
+  font-weight: bold;
+  color: #455a81;
+}
+
+.sign-in {
+  display: flex;
+  transition-timing-function: ease-out;
+}
+.cont.s--signup .sign-in {
+  transition-timing-function: ease-in-out;
+  transition-duration: 1.2s;
+  transform: translate3d(640px, 0, 0);
+}
+
+.sign-up {
+  transform: translate3d(-900px, 0, 0);
+}
+.cont.s--signup .sign-up {
+  transform: translate3d(0, 0, 0);
+}
+
+
+.sidebar{
+  display: flex;
+  flex-direction: column;
+  width: 50%;
+}
+
+
+.package_list{
+  width: 100%;
+  height: 100%;
+  display: flex;
+  /* background-color: #ff5555;
+padding: 10px 0;
+border-radius: 5px; */
+}
+
+.package_list input[type="radio"]{
+  display: none;
+}
+
+.package_list label{
+  margin: 0;
+  cursor: pointer;
+  align-items: center;
+  height: 100%;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+
+.package_list label:hover{
+  background-color: #ff6161;
+border-radius: 20px;
+}
+
+.package_items_container{
+  display: flex;
+}
+
+
+.menu_items_container, .package_items_container{
+  display: flex;
+  margin: 10px auto;
+width: 80%;
+background-color: #f3f3f3;
+height: 80px;
+}
+
+.menu_items_container label{
+  display: flex;
+  align-items: center;
+  margin: 0;
+  width: 100%;
+}
+
+.menu_items_container label.price{
+  width: 10%;
+}
+
+.menu_items_container input{
+  display: none;
+}
+
+.orderform_container{
+  height: 94%;
+}
+
+.orderform_container form{
+  height: 95%;
+}
+
+.order_buttons {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  align-items: center;
+height: 10%;
+}
+
+.btn{
+  margin: 20px 10px;
+}
+
+.order_stage_container {
+  overflow-y: auto;
+  width: 80%;
+  margin: 15px auto;
+  box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
+  padding: 30px 50px;
+  height: 100%;
+}
+
+.package_items{
+  overflow: auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.package_items_container{
+  margin: 13px 0;
+}
+
+
+.choice_container{
+  height: 100%;
+}
+
+.st-container,
+.st-pusher,
+.st-content {
+	height: 100%;
+}
+
+.st-content {
+}
+
+.st-content,
+.st-content-inner {
+	position: relative;
+}
+
+.st-content-inner{
+  /* padding-top: 20px; */
+  /* width: 85%; */
+  height: 83%;
+  margin: 0 auto;
+  overflow-y: scroll;
+  /* box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23); */
+}
+
+.st-content-inner::-webkit-scrollbar {
+    width: .3em;
+}
+
+.st-content-inner::-webkit-scrollbar-track {
+    /* -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3); */
+}
+
+.st-content-inner::-webkit-scrollbar-thumb {
+  background-color: #c7c7c7;
+  /* outline: 1px solid slategrey; */
+}
+
+
+.st-container {
+	position: relative;
+  width: 100%;
+
+  overflow: hidden;
+}
+
+.st-pusher {
+	position: relative;
+	left: 0;
+	z-index: 99;
+	-webkit-transition: -webkit-transform 0.5s;
+	transition: transform 0.5s;
+}
+
+.st-pusher::after {
+	position: absolute;
+	top: 0;
+	right: 0;
+	width: 0;
+	height: 0;
+	background: rgba(0,0,0,0.2);
+	content: '';
+	opacity: 0;
+	-webkit-transition: opacity 0.5s, width 0.1s 0.5s, height 0.1s 0.5s;
+	transition: opacity 0.5s, width 0.1s 0.5s, height 0.1s 0.5s;
+}
+
+.st-menu-open .st-pusher::after {
+	width: 100%;
+	height: 100%;
+	opacity: 1;
+	-webkit-transition: opacity 0.5s;
+	transition: opacity 0.5s;
+}
+
+.st-menu {
+	position: absolute;
+	top: 0;
+	left: 0;
+	z-index: 100;
+	visibility: hidden;
+	width: 300px;
+	height: 100%;
+	background: #ef4736;
+	-webkit-transition: all 0.5s;
+	transition: all 0.5s;
+}
+
+.st-menu::after {
+	position: absolute;
+	top: 0;
+	right: 0;
+	width: 100%;
+	height: 100%;
+	background: rgba(0,0,0,0.2);
+	content: '';
+	opacity: 1;
+	-webkit-transition: opacity 0.5s;
+	transition: opacity 0.5s;
+}
+
+.st-menu-open .st-menu::after {
+	width: 0;
+	height: 0;
+	opacity: 0;
+	-webkit-transition: opacity 0.5s, width 0.1s 0.5s, height 0.1s 0.5s;
+	transition: opacity 0.5s, width 0.1s 0.5s, height 0.1s 0.5s;
+}
+
+/* content style */
+
+.st-menu ul {
+	margin: 0;
+	padding: 0;
+	list-style: none;
+}
+
+.st-menu h2 {
+	margin: 0;
+	padding: 1em;
+	color: rgba(0,0,0,0.4);
+	text-shadow: 0 0 1px rgba(0,0,0,0.1);
+	font-weight: 300;
+	font-size: 2em;
+}
+
+.st-menu ul li a {
+	display: block;
+	padding: 1em 1em 1em 1.2em;
+	outline: none;
+	box-shadow: inset 0 -1px rgba(0,0,0,0.2);
+	color: #f3efe0;
+	text-transform: uppercase;
+	text-shadow: 0 0 1px rgba(255,255,255,0.1);
+	letter-spacing: 1px;
+	font-weight: 400;
+	-webkit-transition: background 0.3s, box-shadow 0.3s;
+	transition: background 0.3s, box-shadow 0.3s;
+}
+
+.st-menu ul li:first-child a {
+	box-shadow: inset 0 -1px rgba(0,0,0,0.2), inset 0 1px rgba(0,0,0,0.2);
+}
+
+.st-menu ul li a:hover {
+	background: rgba(0,0,0,0.2);
+	box-shadow: inset 0 -1px rgba(0,0,0,0);
+	color: #fff;
+}
+
+
+/* Effect 8: 3D rotate out */
+
+.st-effect-8.st-container {
+	-webkit-perspective: 1500px;
+	perspective: 1500px;
+	-webkit-perspective-origin: 0% 50%;
+	perspective-origin: 0% 50%;
+}
+
+.st-effect-8 .st-pusher {
+	-webkit-transform-style: preserve-3d;
+	transform-style: preserve-3d;
+}
+
+.st-effect-8.st-menu-open .st-pusher {
+	-webkit-transform: translate3d(300px, 0, 0);
+	transform: translate3d(300px, 0, 0);
+}
+
+.st-effect-8.st-menu {
+	-webkit-transform: translate3d(-100%, 0, 0) rotateY(90deg);
+	transform: translate3d(-100%, 0, 0) rotateY(90deg);
+	-webkit-transform-origin: 100% 50%;
+	transform-origin: 100% 50%;
+	-webkit-transform-style: preserve-3d;
+	transform-style: preserve-3d;
+}
+
+.st-effect-8.st-menu-open .st-effect-8.st-menu {
+	visibility: visible;
+	-webkit-transition: -webkit-transform 0.5s;
+	transition: transform 0.5s;
+	-webkit-transform: translate3d(-100%, 0, 0) rotateY(0deg);
+	transform: translate3d(-100%, 0, 0) rotateY(0deg);
+}
+
+.st-effect-8.st-menu::after {
+	display: none;
+}
+
+
+/* Fallback example for browsers that don't support 3D transforms (and no JS fallback) */
+.no-csstransforms3d .st-pusher,
+.no-js .st-pusher {
+	padding-left: 300px;
+}
+
+.order_container_banner{
+  width: 1000px;
+  display: flex;
+  background-color: white;
+  align-items: center;
+  border-bottom: 1px solid #e8e8e8;
+  height: 80px;
+  padding: 0 60px;
+  margin: 10px auto;
+}
+
+.order_container_banner img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: flex;
+  justify-content: space-between;
+}
+
+.logo_image {
+  width: 100px;
+  height: 55px;
+}
+
+.right_elements{
+  display: flex;
+  height: 100%;
+  align-items:center;
+}
+
+.title_container{
+  margin-left: 10px;
+}
+.title_container h3{
+  display: flex;
+  align-items: center;
+}
+
+.package_header{
+  height: 60px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+      padding: 0 30px 0 80px;
+}
+.package_header input[type = "button"]{
+  display: flex;
+  position: absolute;
+  right: 0;
+  top: 0;
+}
+
+.package_title h4{
+  font-weight: 700;
+}
+.click button{
+  width: 30px;
+}
+.bar1, .bar2, .bar3 {
+    width: 35px;
+    height: 5px;
+    background-color: #333;
+    margin: 6px 0;
+    transition: 0.4s;
+}
+
+
+input.item_quantity{
+  width: 20%;
+}
+input.item_price{
+  width: 40%;
+}input.item_quantity{
+  width: 10%;
+}
+
+.image_item_container{
+  width: 10px;
+  height: 10px;
+}
+
+.image_item_container img{
+  height: 100%;
+  width: 100%;
+  object-fit: contain;
+}
+
+
+.st-pusher ul{
+  overflow-y: auto;
+}
+.st-pusher ul li{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+height: 50px;
+    color: white;
+    border-top: 1px solid #ffb4b4;
+    border-bottom: 1px solid #ffb4b4;
+}
+
+.st-push nav label{
+  margin: 0;
+}
+
+.header{
+  color: white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-weight: 700;
+  font-size: 25px;
+  height: 90px;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+div#foo.menu_items + div.div2 {
+  display: none;
+}
+
+/* selecting the div.div2 element which is the next
+       element-sibling of an empty (div.div1:empty)
+       div.div1 element: */
+
+div#foo.menu_items:empty + div.div2 {
+  display: block;
+}
+
+div.div1 {
+
+  border: 1px solid #f00;
+  color: #f00;
+}
+
+div.div2 {
+  width: 80%;
+  height: 80%;
+  margin: 0 auto;
+  color: #0f0;
+  border: 1px solid #0f0;
+  margin-bottom: 1em;
+}

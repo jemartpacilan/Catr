@@ -1,0 +1,254 @@
+{% extends 'feedstream/base.html' %}
+{% load static %}
+
+{% block styles %}
+<link href="{% static 'orders/css/book_style.css' %}" rel="stylesheet">
+{% endblock %}
+
+{% block content %}
+<div class="wrap">
+  <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <div class="mycart_title">
+            <i class="large material-icons">shopping_cart</i>
+            <h3>My Cart</h3>
+          </div>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          <div class="tray_container">
+            <div class="mycart">
+              {% for item in item_set %}
+              <ul class="staged_items">
+                <!-- <li><span class="t">{{ item.menu.course.course_name }}</span><a href="#" > sadfasd </a></li> -->
+                <!-- <li>{{ item.menu.course.course_name }} <button onclick="removeItem()">remove</button></li> -->
+                <!-- <li><span class ="item_text">{{ item.menu.course.course_name }}</span> <input class="remove" type="button" value="remove"></li> -->
+                <li><div class="remove"><input class="remove_button" type="button" value="x"><p>{{ item.menu.course.course_name }}</p></div></li>
+              </ul>
+              {% endfor %}
+            </div>
+          </div>
+        </div>
+        <div class="modal-footer">
+          <button class="btn btn-full">
+            <a href="{% url 'payment:payment' caterer.id%}">Order</a>
+          </button>
+          <button type="button" class="btn btn-full" data-dismiss="modal">OK</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="order_container_banner">
+    <div class="right_elements">
+      <div class="logo_image">
+        <img src="{{ caterer.profile_image.url }}" alt="">
+      </div>
+      <div class="title_container">
+        <h3>{{caterer.business_name}}<span class="stars">{{average}}</span></h3>
+        <h4>{{caterer.municipality_address}}</h4>
+      </div>
+    </div>
+    <div class="left_elements">
+      <!-- <div class="rating">
+      <p>5.0</p>
+    </div> -->
+  </div>
+</div>
+
+  <div class="cont">
+
+
+
+    <div class="form sign-in">
+
+        <!-- <div class="sidebar">
+          <div class="package_items">
+            <input value="{{package.id}}" id="{{package.package_name}}" type="radio" name="package">
+            <label for="{{package.package_name}}">{{package.package_name}}</label>
+          </div>
+        </div>
+        -->
+        <div id="st-container" class="st-container">
+          <div class="st-pusher">
+
+            <nav class="st-menu st-effect-8" id="menu-8">
+              <div class="header">
+                PACKAGE LIST
+              </div>
+              <ul>
+                {% for package in packages %}
+                <li>
+                  <div class="package_list">
+                    <input value="{{package.id}}" id="{{package.package_name}}" type="radio" name="package">
+                    <label for="{{package.package_name}}">{{package.package_name}}</label>
+                  </div>
+                </li>
+                {% endfor %}
+              </ul>
+            </nav>
+
+            <div class="st-content">
+              <div class="package_header">
+                <div class="package_title" id="foo1">
+
+                </div>
+                <div class="click">
+                  <button data-effect="st-effect-8">
+                      click
+                  </button>
+                </div>
+              </div>
+              <div class="st-content-inner">
+                <div class="div2">CLICK THIS ICON</div>
+
+                <div class="main clearfix">
+                  <div id="st-trigger-effects" class="column">
+                    <div class="menu_items" id="foo">
+
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="select_button">
+                <input type="button" value="Select" class="select">
+              </div>
+            </div>
+          </div>
+        </div>
+
+
+    </div>
+
+
+
+
+    <div class="sub-cont">
+      <div class="img">
+        <div class="img__text m--up">
+          <h2>See order</h2>
+          <p>something</p>
+        </div>
+        <div class="img__text m--in">
+          <h2>Add again</h2>
+          <p>oki labyu</p>
+        </div>
+        <div class="img__btn">
+          <span class="m--up">-></span>
+          <span class="m--in"><-</span>
+        </div>
+      </div>
+
+      <div class="form sign-up">
+        <!-- <h2>Time to feel like home,</h2>
+        <label>
+          <span>Name</span>
+          <input type="text" />
+        </label>
+        <label>
+          <span>Email</span>
+          <input type="email" />
+        </label>
+        <label>
+          <span>Password</span>
+          <input type="password" />
+        </label>
+        <button type="button" class="submit">Sign Up</button>
+        <button type="button" class="fb-btn">Join with <span>facebook</span></button> -->
+        <div class="choice_container">
+          <div class="myorder">
+            <h3>My Order</h3>
+            <!-- <i class="large material-icons">shopping_cart</i> -->
+            <div class="modal_button">
+              <button type="button" data-toggle="modal" data-target="#exampleModalCenter">Cart</button>
+            </div>
+          </div>
+          <div class="orderform_container">
+            <form action="{% url 'orders:book' caterer.id %}" method="post" class="form_container">
+              {% csrf_token %}
+              <div class="order_container">
+
+                <!-- <div class="order_stage_container"> -->
+                  <div class="package_items"></div>
+                <!-- </div> -->
+              </div>
+              <!-- <div id="item_counter">
+              Item Count: <input id="item_count" readonly name="item_count" value="0"></input>
+            </div> -->
+            <div class="order_buttons">
+              <div>Running Total: <span class="running_total"></span></div>
+              <button type="submit">
+                Add to Cart
+              </button>
+            </div>
+          </form>
+          </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+{% endblock %}
+
+{% block script %}
+<!-- for refreshing page warning -->
+<!-- <script src="{% static 'feedstream/js/refresh.js'%}" type="text/javascript"></script> -->
+<!-- Jquery for autocomplete -->
+<script type="text/javascript">
+/*
+Inspired from: https://tympanus.net/codrops/2013/08/28/transitions-for-off-canvas-navigations/
+
+there are still some quirks for animation 3, 6, 7, 8 & 14
+as they do not animate back gracefully
+(those are the navs in the div with class st-pusher)
+*/
+
+var click = document.querySelectorAll('div button');
+var menu = document.querySelector('#st-container');
+var pusher = document.querySelector('.st-pusher');
+// to store the corresponding effect
+var effect;
+
+// adding a click event to all the buttons
+for (var i = 0; i < click.length; i++) {
+click[i].addEventListener('click', addClass)
+}
+
+pusher.addEventListener('click', closeMenu);
+
+
+
+function addClass(e) {
+// to get the correct effect
+effect = e.target.getAttribute('data-effect');
+// adding the effects
+menu.classList.toggle(effect);
+menu.classList.toggle('st-menu-open');
+
+// console.log(e.target.getAttribute('data-effect'));
+}
+
+function closeMenu(el) {
+// if the click target has this class then we close the menu by removing all the classes
+if (el.target.classList.contains('st-pusher')) {
+  menu.classList.toggle(effect);
+  menu.classList.toggle('st-menu-open');
+  // console.log(el.target);
+}
+}
+
+</script>
+<script type="text/javascript">
+</script>
+<script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+<script src="{% static 'feedstream/js/select_radio.js'%}" type="text/javascript"></script>
+<script src="{% static 'feedstream/js/select.js'%}" type="text/javascript"></script>
+<script src="{% static 'orders/js/transition.js'%}" type="text/javascript"></script>
+<script src="{% static 'feedstream/js/autocomplete.js'%}" type="text/javascript"></script>
+<!--<script src="{% static 'orders/js/checkbox-show.js'%}" type="text/javascript"></script>-->
+<script type="text/javascript" src="{% static 'feedstream/js/stars.js' %}"></script>
+{% endblock %}

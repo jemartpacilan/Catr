@@ -1,0 +1,224 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <title>CATR</title>
+  <meta content="width=device-width, initial-scale=1.0" name="viewport">
+
+  <link href="https://fonts.googleapis.com/css?family=Raleway:400,500,700|Roboto:400,900" rel="stylesheet">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+  <link href="{% static 'feedstream/lib/bootstrap/css/bootstrap.min.css' %}" rel="stylesheet">
+  <link href="{% static 'feedstream/lib/font-awesome/css/font-awesome.min.css' %}" rel="stylesheet">
+  <link href="{% static 'feedstream/css/style.css' %}" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  <link rel="shortcut icon" href="{% static 'feedstream/images/logo.ico' %}">
+  <link href="https://fonts.googleapis.com/css?family=Dancing+Script" rel="stylesheet">
+
+
+
+
+  {% block styles %}{% endblock %}
+</head>
+
+<body>
+  <div id="starting">
+    {% include 'includes/navbar.html'%}
+    <div class="wrapper">
+      {% block content %} {% endblock %}
+    </div>
+    {% include 'includes/footer.html'%}
+  </div>
+
+  <!-- Required JavaScript Libraries -->
+  <script src=" {% static 'feedstream/lib/jquery/jquery.min.js' %}"></script>
+  <script src=" {% static 'feedstream/lib/jquery/jquery-migrate.min.js' %}"></script>
+  <script src=" {% static 'feedstream/lib/superfish/hoverIntent.js' %}"></script>
+  <script src=" {% static 'feedstream/lib/superfish/superfish.min.js' %}"></script>
+  <script src=" {% static 'feedstream/lib/tether/js/tether.min.js' %}"></script>
+  <script src=" {% static 'feedstream/lib/stellar/stellar.min.js' %}"></script>
+  <script src=" {% static 'feedstream/lib/bootstrap/js/bootstrap.bundle.min.js' %}"></script>
+  <script src=" {% static 'feedstream/lib/counterup/counterup.min.js' %}"></script>
+  <script src=" {% static 'feedstream/lib/waypoints/waypoints.min.js' %}"></script>
+  <script src=" {% static 'feedstream/lib/easing/easing.js' %}"></script>
+  <script src=" {% static 'feedstream/lib/stickyjs/sticky.js' %}"></script>
+  <script src=" {% static 'feedstream/lib/lockfixed/lockfixed.min.js' %}"></script>
+  <script src=" {% static 'feedstream/js/navbar-drop.js' %}"></script>
+  {# bootstrap js files #}
+  <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+  <script>
+    $(document).ready(function($) {
+      $(".photopreview").click(function() {
+        $("#modalCenter").modal('show');
+      });
+    });
+  </script>
+  {# Vue template library CDN #}
+  <script src="https://cdn.jsdelivr.net/npm/vue@2.5.13/dist/vue.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/vue-resource@1.3.5"></script>
+
+  <!-- JQuery autocomplete libraries -->
+  <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+  <!-- <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script> -->
+  {% block script %}{% endblock %}
+  <script>
+    $('.payment-method').click(function(e) {
+      $(this).addClass('activepayment');
+      $(this).siblings().removeClass('activepayment');
+    });
+  </script>
+  <script type="text/javascript">
+    $(document).ready(function(){
+        var height = $(window).height();
+        $('.left-chat').css('height', (height - 92) + 'px');
+        $('.right-header-contentChat').css('height', (height - 163) + 'px');
+      });
+  </script>
+
+  <script>
+    var $star_rating = $('.star-rating .fa');
+    var SetRatingStar = function() {
+      return $star_rating.each(function() {
+        if (parseInt($star_rating.siblings('input.rating-value').val()) >= parseInt($(this).data('rating'))) {
+          return $(this).removeClass('fa-star-o').addClass('fa-star');
+        } else {
+          return $(this).removeClass('fa-star').addClass('fa-star-o');
+        }
+      });
+    };
+
+    $star_rating.on('click', function() {
+      $star_rating.siblings('input.rating-value').val($(this).data('rating'));
+      return SetRatingStar();
+    });
+
+    SetRatingStar();
+  </script>
+
+  <script>
+    $('.onhand').click(function(e) {
+      $('.onhand_form').css("display","block");
+      $('.mastercard_form').css("display","none");
+      $('.paypal_form').css("display","none");
+    });
+    $('.mastercard').click(function(e) {
+      $('.mastercard_form').css("display","block");
+      $('.onhand_form').css("display","none");
+      $('.paypal_form').css("display","none");
+    });
+    $('.paypal').click(function(e) {
+      $('.paypal_form').css("display","block");
+      $('.onhand_form').css("display","none");
+      $('.mastercard_form').css("display","none");
+    });
+  </script>
+
+  <script>
+    $('.act').click(function(e) {
+      var $this = $(this);
+      if (!$this.hasClass('subnav_selected')) {
+        $this.addClass('subnav_selected');
+        $this.parents().siblings().children('.subnav_selected').removeClass('subnav_selected');
+      }
+      e.preventDefault();
+    });
+  </script>
+
+  <script>
+    $('.profile-tab').click(function(e) {
+      var $this = $(this);
+      if (!$this.hasClass('selected')) {
+        $this.addClass('selected');
+        $this.siblings('.selected').removeClass('selected')
+      }
+      e.preventDefault();
+    });
+
+    $('.info-tab-header').click(function(e) {
+      $('.info-div').css("display","block");
+      $('.menu-div').css("display","none");
+      $('.photos-div').css("display","none");
+    });
+
+    $('.menu-tab-header').click(function(e) {
+      $('.info-div').css("display","none");
+      $('.menu-div').css("display","block");
+      $('.photos-div').css("display","none");
+    });
+
+    $('.photos-tab-header').click(function(e) {
+      $('.info-div').css("display","none");
+      $('.menu-div').css("display","none");
+      $('.photos-div').css("display","block");
+    });
+  </script>
+
+    <script>
+
+      var currentLocation;
+
+      // Note that after navigator.geolocation.getCurrentPosition
+      // finishes execution, currentLocation should have the browser's
+      // current location.
+
+      if ("geolocation" in navigator) {
+        navigator.geolocation.getCurrentPosition(function(position) {
+          currentLocation = position;
+        });
+      } else {
+        alert('geolocation is not available in your browser');
+      }
+
+      console.log("Triggered geolocation...");
+
+      // use function as follows:
+      // in the case of multi_word_city_or_location in the 'location'
+      // argument of getLocationViaHere(location),
+      // represent spaces as '+'
+      // i.e. 'Mandaue City' becomes
+      // 'Mandaue+City'.
+
+      // Note that some locations will not be represented.
+      // The function returns a Promise.
+      // Therefore, when using the function, append a 'then' method
+      // supplied with a function that does what
+      // you want with its resolved data.
+
+      // For example:
+
+      // Sample Code
+      var coordinates;
+      
+      getLocationViaHERE('Maribago+Lapu-Lapu+City').then(function(data) {
+          coordinates = data;
+          console.log(coordinates)
+      });
+
+      // Note that initially, 'coordinates' may not have any values
+      // because the Promise must not have resolved yet.
+
+      // Ask me if you've got further questions on how to use this.
+
+      // Jace
+
+      function getLocationViaHERE(location) {
+        var unres_coords = new Promise(function(resolve, reject) {
+          $.ajax({
+            url: 'https://geocoder.cit.api.here.com/6.2/geocode.json?app_id=jlSvwwwjsXosoDszZSTF&app_code=pAvc11w29ynkyotNn4vQ6A&searchtext=' + location
+          }).then(function(data) {
+              resolve(data.Response.View[0].Result[0].Location.DisplayPosition);
+          });
+        });
+
+        return unres_coords;
+      }
+
+    </script>
+
+</body>
+
+</html>

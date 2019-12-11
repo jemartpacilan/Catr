@@ -1,0 +1,57 @@
+{% extends 'feedstream/base.html' %}
+{% load static %}
+{% block styles %}
+<link href="{% static 'mypage/css/addmenu.css' %}" rel="stylesheet" enctype="enctype="multipart/form-data"">
+{% endblock %}
+{% block content %}
+<div class="addmenu_container">
+  <form method="post">
+    {% csrf_token %}
+    <div class="info_heading">
+      <h3>Add to Menu</h3>
+    </div>
+    <div class="form-group">
+      <label for="CName">Course Name</label>
+      <input type="text" class="form-control" id="CName" name="cname" value="">
+    </div>
+
+    <div class="form-group">
+      <label for="Cdescription">Course Description</label>
+      <input type="text" class="form-control" id="Cdescription" name="cdescription" value="">
+    </div>
+
+    <div class="form-group">
+      <label for="Ccategory">Course Category</label>
+      <input type="text" class="form-control" id="Ccategory" name="ccategory" value="">
+    </div>
+
+    <div class="form-group">
+      <label for="Cunit">Course Unit</label>
+      <input type="text" class="form-control" id="Cunit" name="cunit" value="">
+    </div>
+
+    <div class="form-group">
+      <label for="Cprice">Course Price</label>
+      <input type="number" step="0.01" min="0" class="form-control" id="Cprice" name="cprice" value="">
+    </div>
+
+    <div class="form-group">
+      <label for="Cpicture">Upload Course Picture</label><br />
+      <input type="file" name="cpicture" value="">
+    </div>
+
+    <div class="form-group">
+      <label for="menu">Choose Package of Course Item</label><br>
+        <select name="packages">
+            <option value="">Choose Package</option>
+          {% for package in packages %}
+            <option value="{{ package.id }}">{{ package.package_name }}</option>
+          {% endfor %}
+        </select>
+    </div>
+
+    <button type="submit" class="btn btn-primary">Submit</button>
+  </form>
+</div>
+
+{% endblock %}
