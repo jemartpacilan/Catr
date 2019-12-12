@@ -7,7 +7,7 @@ This application serves as the official internship output of Jemart Pacilan, Bra
 ## To run the application
 
 1. Clone the repository <br>
-	<code>$ git clone https://gitlab.com/Jaceeee/Catr-catering-application.git</code><br>
+	<code>$ git clone https://github.com/jemartpacilan/Catr</code><br>
 	<code>$ cd Catr-catering-application</code>
 	<br>
 
